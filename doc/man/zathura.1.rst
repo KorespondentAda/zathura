@@ -5,9 +5,8 @@ Synopsis
 --------
 
 zathura [-e XID] [-c PATH] [-d PATH] [-p PATH] [-w PASSWORD] [-P NUMBER]
-[--fork] [-l LEVEL] [-s] [-x CMD] [--synctex-forward INPUT] [--synctex-pid PID]
-[-find STRING]
-<files>
+[-l LEVEL] [-x CMD] [-f STRING] [-b BOOKMARK] [--mode] [--fork]
+[--synctex-forward INPUT] [--synctex-pid PID] [--] <files>
 
 Description
 -----------
@@ -41,14 +40,26 @@ Options
   with 1, and negative numbers indicate page numbers starting from the end
   of the document, -1 being the last page.
 
--f, --find=string
-  Opens the document and searches for the given string.
-
 -l, --log-level=level
   Set log level (debug, info, warning, error)
 
 -x, --synctex-editor-command=command
   Set the synctex editor command. Overrides the synctex-editor-command setting.
+
+-f, --find=string
+  Search for the given phrase and display results
+
+-b --bookmark=bookmark
+  Bookmark to go to
+
+--mode=mode
+  Start in a non-default mode
+
+--fork
+  Fork into background
+
+--cache-dir=path
+  Path to the cache directory
 
 --synctex-forward=input
   Jump to the given position. The switch expects the same format as specified
@@ -60,16 +71,10 @@ Options
   the instance with the given PID. Note that if the given PID does not have the
   correct file open or does not exist, no new instance will be spanned.
 
---mode=mode
-  Start in a non-default mode
-
---fork
-  Fork into background
-
---version
+-v --version
   Display version string and exit
 
---help
+-h --help
   Display help and exit
 
 Mouse and key bindings
